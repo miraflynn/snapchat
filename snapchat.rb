@@ -1,3 +1,4 @@
+require "io/console"
 class User
   attr_accessor = :username, :password
   def initialize
@@ -18,6 +19,7 @@ class User
   end
   def set_password
     puts "Password:"
+    STDIN.noecho(&:gets).chomp
     password = gets.chomp
     @password = password
   end
@@ -56,6 +58,7 @@ while user2_login == "false" && login_tries < 4
   puts "Username:"
   username_try = gets.chomp
   puts "Password:"
+  STDIN.noecho(&:gets).chomp
   password_try = gets.chomp
   if username_try == "Eric" && password_try == "..."
     user2_login = "true"
